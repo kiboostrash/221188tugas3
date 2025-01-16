@@ -2,10 +2,19 @@
 import streamlit as st
 import pickle
 from utils.preprocess import preprocess_input
+import os
+
+model_path = 'model/model.pkl'
+if os.path.exists(model_path):
+    with open(model_path, 'rb') as f:
+        data = pickle.load(f)
+else:
+    raise FileNotFoundError(f"File {model_path} tidak ditemukan.")
 
 # Load model and vectorizer
 with open('model/model.pkl', 'rb') as f:
     data = pickle.load(f)
+
     model = data['model']
     vectorizer = data['vectorizer']
 
