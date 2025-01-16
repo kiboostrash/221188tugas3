@@ -6,7 +6,7 @@ import os
 
 model_path = 'model/model.pkl'
 if os.path.exists(model_path):
-    with open(model_path, 'rb') as f:
+    with open(model, 'rb') as f:
         data = pickle.load(f)
 else:
     raise FileNotFoundError(f"File {model_path} tidak ditemukan.")
