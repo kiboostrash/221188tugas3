@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 # Load dataset
-data = pd.read_csv('../data/tugas1.csv')
+data = pd.read_csv('data/tugas1.csv')
 
 # Features (menggunakan TITLE dan ABSTRACT sebagai input)
 X = data[['TITLE', 'ABSTRACT']]
@@ -28,7 +28,7 @@ model = RandomForestClassifier()
 model.fit(X_train, y_train)
 
 # Save the model and vectorizer
-with open('../model/model.pkl', 'wb') as f:
+with open('model/model.pkl', 'wb') as f:
     pickle.dump({'model': model, 'vectorizer': vectorizer}, f)
 
 print("Model saved successfully!")
